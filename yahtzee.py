@@ -24,6 +24,7 @@ class yahtzee():
         self.keep()
         for num in self.player_dice:
             if num in self.table_dice:
+                self.table_dice.remove(num)
                 continue
             else:
                 self.keep()
