@@ -9,22 +9,26 @@ class yahtzee():
 
     def roll(self):
         self.table_dice = choices(population=self.dice, k=5)
+
+
+    def keep(self):    
+            self.player_dice = input('Which dice would you like to keep\n(type number with spaces between)? ')
+            self.player_dice = self.player_dice.split()
+            self.player_dice = [int(x) for x in self.player_dice]
+
         
 
     def play(self):
         self.roll()
         print(self.table_dice)
-        player_dice = input('Which dice would you like to keep\n(type number with spaces between)? ')
-        player_dice = player_dice.split()
-        player_dice = [int(x) for x in player_dice]
-        for x in player_dice:    
-            while x not in self.table_dice:
-                player_dice = input('Try again: ')
-                player_dice = player_dice.split()
-                player_dice = [int(x) for x in player_dice]
-                print(player_dice)
+        self.keep()
+        for num in self.player_dice:
+            if num in self.table_dice:
+                continue
+            else:
+                self.keep()
 
-        print(player_dice)
+        print(self.player_dice)
 
 
         
