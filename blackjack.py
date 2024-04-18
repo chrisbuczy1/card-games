@@ -7,7 +7,7 @@ class blackjack():
                 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ]
     
    
-    
+    #starting menu and declare deck copy and hand copy variables
     def play(self):
         self.deck = ['a', 'a', 'a', 'a', 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9,
                 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ]
@@ -20,14 +20,14 @@ class blackjack():
             exit()
 
     
-    
+    #add card to specified players hand
     def addcard(self, hand,):
         _ = choice(self.deck)
         self.deck.remove(_)
         hand.append(_)
         
     
-    
+    #playing game, adding cards to players and dealers hand, ace logic
     def game(self):
         self.addcard(self.players_hand) 
         if self.players_hand[0] == 'a':
@@ -53,7 +53,7 @@ class blackjack():
         self.sorh()
 
     
-    
+    #hit or stand logic
     def sorh(self):
         hors = input('hit or stand? (h or s)')
         while hors == 'h':
@@ -82,7 +82,7 @@ class blackjack():
             self.check()
     
     
-
+    #ace logic
     def one_or_eleven(self):
         if 'a' in self.dealers_hand:
             self.dealers_hand.remove('a')
@@ -93,7 +93,7 @@ class blackjack():
             
                 
     
-    
+    #check who won
     def check(self):
         if sum(self.players_hand) > 21:
             print('Bust!')
