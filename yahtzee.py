@@ -7,10 +7,11 @@ class yahtzee():
     x = 5
     dices = []
 
+    #roll dice
     def roll(self):
         self.table_dice = choices(population=self.dice, k=self.x)
 
-
+    #appends kept dice into your hand
     def keep(self):    
         self.player_dice = input('Which dice would you like to keep\n(type number with spaces between)? ')
         self.player_dice = self.player_dice.split()
@@ -18,7 +19,7 @@ class yahtzee():
         self.dices.extend(self.player_dice)
 
         
-
+    #main game and amount of dice rolls logic
     def play(self):
         while self.rolls != 0:
             self.roll()
